@@ -10,9 +10,9 @@ import DataProvider from './data-provider';
 function App () {
     return (
         <Admin dashboard={Dashboard} dataProvider={DataProvider}>
-            <Resource name="buyers" icon={Group}list={Buyer.List} edit={Buyer.Edit} create={Buyer.Create}/>
-            <Resource name="products" icon={LocalMall}list={Product.List} edit={Product.Edit} create={Product.Create}/>
-            <Resource name="vendors" icon={StoreMallDirectory}list={Vendor.List} edit={Vendor.Edit} show={Vendor.Show} create={Vendor.Create}/>
+            <Resource name="buyers" label="Usuarios" icon={Group}list={Buyer.List} edit={Buyer.Edit} create={Buyer.Create}/>
+            <Resource name="products" label="Productos" icon={LocalMall}list={Product.List} edit={Product.Edit} create={Product.Create}/>
+            <Resource name="vendors" label="Proveedores" icon={StoreMallDirectory}list={Vendor.List} edit={Vendor.Edit} show={Vendor.Show} create={Vendor.Create}/>
         </Admin>
     );
 }
