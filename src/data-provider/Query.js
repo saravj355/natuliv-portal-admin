@@ -1,3 +1,5 @@
+import { stringify } from 'querystring';
+
 export default function handleQueryString (params) {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
@@ -8,13 +10,15 @@ export default function handleQueryString (params) {
     }
 
     if (params.filter) {
-        // sort field
-        queryString.query += `&sortBy=${field}`;
-        queryString.query += `&sortOrder=${order}`;
-        // range field
-        queryString.query += `&offset=${(page - 1) * perPage}`;
-        queryString.query += `&limit=${page * perPage - 1}`;
+        queryString.query += `${stringify(params.filter)}`;
     }
+
+    // sort field
+    queryString.query += `&sortBy=${field}`;
+    queryString.query += `&sortOrder=${order}`;
+    // range field
+    queryString.query += `&offset=${(page - 1) * perPage}`;
+    queryString.query += `&limit=${page * perPage - 1}`;
 
     return queryString.query;
 }
