@@ -1,10 +1,18 @@
 import React from 'react';
-import { Datagrid, FunctionField, ReferenceManyField, Show, ShowButton, Tab, TabbedShowLayout, TextField } from 'react-admin';
+import {
+    Datagrid,
+    FunctionField,
+    ImageField,
+    ReferenceManyField,
+    Show,
+    Tab,
+    TabbedShowLayout,
+    TextField
+} from 'react-admin';
 
 const ShowVendor = (props) => {
     return (
         <Show title="Vendor" {...props}>
-
             <TabbedShowLayout>
                 <Tab label="Información vendedor">
                     <TextField source="id" />
@@ -15,21 +23,29 @@ const ShowVendor = (props) => {
                         addLabel={false}
                         reference="products"
                         target="vendorId"
-                        label="Products">
+                        label="Products"
+                    >
                         <Datagrid>
-                            <TextField label="Id" source="id" />
+                            <ImageField label="Producto" source="" />
                             <TextField label="Nombre" source="name" />
-                            <TextField label="Categoría" source="productCategory.categoryName"/>
-                            <TextField label="Descripción" source="description" />
-                            <TextField label="Precio" source="price"/>
-                            <FunctionField label="Estado" render={(record) => record.isActive ? 'ACTIVO' : 'INÁCTIVO'} />
-                            <ShowButton />
+                            <TextField label="Precio" source="price" />
+                            <TextField
+                                label="Categoria"
+                                source="productCategory.displayName"
+                                sortable={false}
+                            />
+                            <FunctionField
+                                label="Estado"
+                                sortBy={'isActive'}
+                                render={(record) =>
+                                    record.isActive ? 'ACTIVO' : 'INÁCTIVO'
+                                }
+                            />
                         </Datagrid>
                     </ReferenceManyField>
                 </Tab>
             </TabbedShowLayout>
         </Show>
-
     );
 };
 
