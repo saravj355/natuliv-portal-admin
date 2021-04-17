@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Filter, SelectInput, TextInput } from 'react-admin';
+import { Filter, SearchInput, SelectInput } from 'react-admin';
 
 const VendorFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Nombre" source="name" />
+        <SearchInput placeholder="Nombre" source="name" alwaysOn />
         <SelectInput
             source="isActive"
             label="Estado"
