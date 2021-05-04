@@ -1,11 +1,10 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import Buyer from './components/Buyers';
-import Category from './components/Categories';
 import Dashboard from './components/Dashboard';
 import Product from './components/Products';
 import Vendor from './components/Vendors';
-import DataProvider from './data-provider';
+import DataProvider from './dataProvider';
 
 function App () {
     return (
@@ -24,11 +23,6 @@ function App () {
                 name="vendors"
                 options={{ label: 'Proveedores' }}
                 {...Vendor}
-            />
-            <Resource
-                name="products/categories"
-                options={{ label: 'Categorias' }}
-                {...Category}
             />
         </Admin>
     );
