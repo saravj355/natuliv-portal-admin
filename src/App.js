@@ -1,9 +1,6 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
-import Buyer from './components/Buyers';
-import Dashboard from './components/Dashboard';
-import Product from './components/Products';
-import Vendor from './components/Vendors';
+import { Buyers, Categories, Dashboard, Products, Vendors } from './components';
 import DataProvider from './dataProvider';
 
 function App () {
@@ -11,18 +8,23 @@ function App () {
         <Admin dashboard={Dashboard} dataProvider={DataProvider}>
             <Resource
                 name="buyers"
-                options={{ label: 'Usuarios' }}
-                {...Buyer}
-            />
-            <Resource
-                name="products"
-                options={{ label: 'Productos' }}
-                {...Product}
+                options={{ label: 'Clientes' }}
+                {...Buyers}
             />
             <Resource
                 name="vendors"
                 options={{ label: 'Proveedores' }}
-                {...Vendor}
+                {...Vendors}
+            />
+            <Resource
+                name="products"
+                options={{ label: 'Productos' }}
+                {...Products}
+            />
+            <Resource
+                name="categories"
+                options={{ label: 'Categorias' }}
+                {...Categories}
             />
         </Admin>
     );
