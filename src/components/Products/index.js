@@ -1,11 +1,13 @@
-import LocalIcon from '@material-ui/icons/LocalMall';
-import Create from './Create';
-import Edit from './Edit';
-import List from './List';
+import StoreIcon from '@material-ui/icons/LocalMall';
+import CreateProduct from './CreateProduct';
+import EditProduct from './EditProduct';
+import ListProducts from './ListProducts';
+import ShowProduct from './ShowProduct';
 
 export default {
-    list: List,
-    edit: Edit,
-    create: Create,
-    icon: LocalIcon
+    list: ListProducts,
+    edit: EditProduct,
+    create: CreateProduct,
+    show: ShowProduct,
+    icon: StoreIcon
 };

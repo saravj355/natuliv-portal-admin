@@ -1,7 +1,9 @@
-import CategoryIcon from '@material-ui/icons/Bookmark';
-import List from './List';
+import BookmarkIcon from '@material-ui/icons/Bookmarks';
+import ListCategories from './ListCategories';
+import ShowCategory from './ShowCategory';
 
 export default {
-    list: List,
-    icon: CategoryIcon
+    list: ListCategories,
+    icon: BookmarkIcon,
+    show: ShowCategory
 };

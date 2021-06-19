@@ -1,11 +1,13 @@
 import GroupIcon from '@material-ui/icons/Group';
-import Create from './Create';
-import Edit from './Edit';
-import List from './List';
+import CreateBuyer from './CreateBuyer';
+import EditBuyer from './EditBuyer';
+import ListBuyers from './ListBuyers';
+import ShowBuyer from './ShowBuyer';
 
 export default {
-    list: List,
-    edit: Edit,
-    create: Create,
+    list: ListBuyers,
+    edit: EditBuyer,
+    create: CreateBuyer,
+    show: ShowBuyer,
     icon: GroupIcon
 };

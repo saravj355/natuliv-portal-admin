@@ -1,13 +1,13 @@
 import StoreIcon from '@material-ui/icons/StoreMallDirectory';
-import Create from './Create';
-import Edit from './Edit';
-import List from './List';
-import Show from './Show';
+import CreateVendor from './CreateVendor';
+import EditVendor from './EditVendor';
+import ListVendors from './ListVendors';
+import ShowVendor from './ShowVendor';
 
 export default {
-    list: List,
-    edit: Edit,
-    create: Create,
-    show: Show,
+    list: ListVendors,
+    edit: EditVendor,
+    create: CreateVendor,
+    show: ShowVendor,
     icon: StoreIcon
 };
