@@ -18,7 +18,7 @@ const ListBuyers = (props) => (
 export const FilterBuyer = (props) => {
     return (
         <Filter {...props}>
-            <TextInput label="Nombre" source="fullName" />
+            <TextInput label="Nombre" source="fullName" alwaysOn />
             <TextInput label="Correo Electrónico" source="email" />
             <NullableBooleanInput label="Estado" source="isActive" />
             <SelectInput
