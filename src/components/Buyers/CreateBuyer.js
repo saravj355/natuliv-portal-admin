@@ -10,7 +10,7 @@ const redirectShow = (basePath, id) => `${basePath}/${id}/show`;
 
 const CreateBuyer = (props) => {
     return (
-        <Create {...props} >
+        <Create {...props} title="Crear usuario">
             <SimpleForm redirect={redirectShow}>
                 <TextInput source="fullName" label="Nombre Completo" />
                 <TextInput source="email" label="Correo ELectrónico" />
