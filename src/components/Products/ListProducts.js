@@ -12,7 +12,7 @@ import {
     TextInput
 } from 'react-admin';
 
-export const FilterProduct = (props) => {
+const FilterProduct = (props) => {
     return (
         <Filter {...props}>
             <TextInput label="Nombre Producto" source="name" alwaysOn />
@@ -22,7 +22,7 @@ export const FilterProduct = (props) => {
                 label="Proveedor"
                 sort={{ field: 'name', order: 'ASC' }}
             >
-                <SelectInput optionText="Proveedor" />
+                <SelectInput optionText="name" />
             </ReferenceInput>
             <ReferenceInput
                 source="productCategoryId"
@@ -37,13 +37,13 @@ export const FilterProduct = (props) => {
     );
 };
 
-export const ProductGridView = () => {
+const ProductGridView = () => {
     return (
         <Datagrid rowClick="show">
-            <TextField label="Imagen" source="imagePath" sortable={false} />
+            <TextField source="imagePath" sortable={false} addLabel={false} />
             <TextField label="Nombre" source="name" />
             <ReferenceField
-                label="Proveedores"
+                label="Proveedor"
                 reference="vendors"
                 source="vendorId"
             >
@@ -74,6 +74,7 @@ const ListProducts = (props) => (
         bulkActionButtons={false}
         sort={{ field: 'isActive', order: 'DESC' }}
         title="Productos"
+        hasCreate={true}
     >
         <ProductGridView />
     </List>
