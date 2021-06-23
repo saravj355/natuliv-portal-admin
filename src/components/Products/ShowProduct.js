@@ -1,34 +1,43 @@
+import { Typography } from '@material-ui/core';
 import * as React from 'react';
 import {
-    ReferenceField,
-    Show,
+    ReferenceField, Show,
     Tab,
-    TabbedShowLayout,
-    TextField
+    TabbedShowLayout, TextField
 } from 'react-admin';
+import CategoryRelatedProducts from './CategoryRelatedProducts';
 
 const ProductTitle = ({ record }) =>
-    record ? <span>Producto {record.name}</span> : null;
+    record ? <span>{record.name}</span> : null;
 
 const ShowProduct = (props) => {
     return (
-        <Show {...props} title={<ProductTitle />}>
+        <Show title={<ProductTitle />} {...props} >
             <TabbedShowLayout>
                 <Tab label="Información producto">
-                    <TextField source="id" />
+                    <TextField source="imagePath" />
                     <TextField source="name" />
-                </Tab>
-                <Tab label="Información del vendedor" path="vendor">
+                    <TextField source="price" />
+                    <TextField source="description" />
                     <ReferenceField
-                        source="vendorId"
-                        reference="vendors"
-                        label="Proveedor"
+                        source="productCategoryId"
+                        reference="categories"
+                        label="Categoría"
                     >
-                        <TextField label="Nombre" source="name" />
+                        <TextField source="displayName" />
                     </ReferenceField>
+                    <Typography
+                        variant="h5"
+                        component="h2"
+                        color="primary"
+                        align="center"
+                    >
+                        Productos Relacionados
+                    </Typography>
+                    <CategoryRelatedProducts />
                 </Tab>
             </TabbedShowLayout>
-        </Show>
+        </Show >
     );
 };
 

@@ -1,19 +1,25 @@
 import React from 'react';
 import {
-    Datagrid, EditButton, FunctionField, ReferenceManyField,
+    FunctionField, ReferenceManyField,
     Show,
     Tab, TabbedShowLayout,
     TextField
 } from 'react-admin';
 import ListProducts from '../Products/ListProducts';
+import VendorUserShowActions from './Users/AddCreateUserButton';
+import ListVendorUsers from './Users/ListVendorUsers';
 
 const ShowVendor = (props) => {
     return (
-        <Show title="Vendor" {...props}>
+        <Show title="Vendor" actions={<VendorUserShowActions />} {...props}>
             <TabbedShowLayout>
                 <Tab label="Información vendedor">
-                    <TextField source="id" />
-                    <TextField source="name" />
+                    <TextField source="logoPath" addLabel={false} />
+                    <TextField source="name" label="Nombre" />
+                    <TextField source="description" label="Descripción" />
+                    <TextField source="contactNumber" label="Contacto" />
+                    <TextField source="websiteUrl" label="Sitio Web" />
+                    <FunctionField source="isActive" label="Estado" render={(record) => record ? 'Activo' : 'Ináctivo'} />
                 </Tab>
                 <Tab label="Usuarios" path="users">
                     <ReferenceManyField
@@ -21,26 +27,7 @@ const ShowVendor = (props) => {
                         reference="vendors"
                         target="_nested_users"
                     >
-                        <Datagrid rowClick="show">
-                            <TextField
-                                label="Nombre"
-                                source="identityUser.fullName"
-                            />
-                            <TextField
-                                label="Correo Electrónico"
-                                source="identityUser.email"
-                            />
-                            <FunctionField
-                                label="Última conexión"
-                                render={(record) => (record.identityUser.lastLoginDate ? record.identityUser.lastLoginDate : 'No ha ingresado')}
-                            />
-                            <FunctionField
-                                label="Estado"
-                                sortBy={'isActive'}
-                                render={(record) => (record.identityUser.isActive ? 'Activo' : 'Ináctivo')}
-                            />
-                            <EditButton />
-                        </Datagrid>
+                        <ListVendorUsers />
                     </ReferenceManyField>
                 </Tab>
                 <Tab label="Productos" path="products">
